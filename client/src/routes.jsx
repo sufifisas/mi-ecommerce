@@ -1,7 +1,14 @@
+import Product from "./pages/product";
+import SingleProduct from "./pages/product/single";
+
 const routes = [
     {
         path: "/",
-        element: <div>Hello world</div>,
+        element: <Product />,
+    },
+    {
+        path: "/:id",
+        element: <SingleProduct />,
     },
 ];
 
