@@ -1,4 +1,5 @@
 import { useParams, useNavigate, useLocation, Link } from 'react-router-dom';
+import MainLayout from '../../layouts/MainLayout';
 
 const SingleProduct = () => {
     let { id } = useParams();
@@ -6,12 +7,12 @@ const SingleProduct = () => {
     const location = useLocation();
 
     return (
-        <>
+        <MainLayout>
             { location?.key === 'default' ?
                 <Link to="/">Home</Link> : <button onClick={() => navigate(-1)}>Back</button>	
             }
             <div>Single Product ID: { id }</div>
-        </>
+        </MainLayout>
     )
   }
   

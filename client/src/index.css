@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --theme-color: #007E78;
+    --grey-base: #CED8DD;
+    --white-base: #FFFFFF;
+}
+
+.Search {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    @apply gap-3;
+}
+.Search .container {
+    border: 2px solid var(--grey-base);
+    border-radius: 10px;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    @apply px-3 py-1 gap-2;
+}
+.Search .field {
+    height: 40px;
+    @apply flex-grow;
+}
+
+.Search .field:focus-visible  {
+    outline: none;
+}
+.Search:has(*:focus-visible) .container {
+    border-color: var(--theme-color);
+}
+.Search .btn {
+    background: var(--theme-color);
+    border-radius: 10px;
+    color: var(--white-base);
+    @apply px-6 py-3.5;
+}
