@@ -1,11 +1,16 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 :root {
-    --theme-color: #007E78;
+    --theme-color: #54B435;
+    --secondary-color: #FFCF9D;
     --grey-base: #CED8DD;
     --white-base: #FFFFFF;
+}
+
+.btn {
+    background: var(--theme-color);
+    border-radius: 10px;
+    color: var(--white-base);
+    @apply px-4 py-2;
 }
 
 .Search {
@@ -33,9 +38,33 @@
 .Search:has(*:focus-visible) .container {
     border-color: var(--theme-color);
 }
-.Search .btn {
-    background: var(--theme-color);
-    border-radius: 10px;
+
+
+.Banner {
+    min-height: 200px;
+    background-color: var(--theme-color);
     color: var(--white-base);
-    @apply px-6 py-3.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @apply py-6 px-4 -mx-4 text-3xl;
 }
+
+.ProductCard {
+    border-radius: 10px;
+    border: 1px solid var(--grey-base);
+    display: flex;
+    flex-direction: column;
+    @apply p-3;
+}
+.ProductCard .tag {
+    background-color: var(--secondary-color);
+    border-radius: 20px;
+    color: var(--white-base);
+    display: inline-block;
+    @apply p-1 px-3 mb-1 text-xs;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

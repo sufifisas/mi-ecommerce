@@ -7,7 +7,7 @@ const SingleProduct = () => {
     const location = useLocation();
 
     return (
-        <MainLayout>
+        <MainLayout title="Single Product">
             { location?.key === 'default' ?
                 <Link to="/">Home</Link> : <button onClick={() => navigate(-1)}>Back</button>	
             }
