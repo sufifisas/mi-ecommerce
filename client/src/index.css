@@ -2,7 +2,9 @@
 :root {
     --theme-color: #54B435;
     --secondary-color: #FFCF9D;
+    --black-base: #000000;
     --grey-base: #CED8DD;
+    --grey-dark: #848688;
     --white-base: #FFFFFF;
 }
 
@@ -10,7 +12,31 @@
     background: var(--theme-color);
     border-radius: 10px;
     color: var(--white-base);
-    @apply px-4 py-2;
+    border: 1px solid var(--theme-color);
+    transition: 0.3s all;
+    @apply px-4 py-2 font-semibold;
+}
+.btn:hover {
+    border-radius: 10px;
+    background: var(--white-base);
+    color: var(--theme-color);
+    border: 1px solid var(--theme-color);
+    @apply px-4 py-2 font-semibold;
+}
+.btn_outline {
+    border-radius: 10px;
+    background: var(--white-base);
+    color: var(--theme-color);
+    border: 1px solid var(--theme-color);
+    transition: 0.3s all;
+    @apply px-4 py-2 font-semibold;
+}
+.btn_outline:hover {
+    background: var(--theme-color);
+    border-radius: 10px;
+    color: var(--white-base);
+    border: 1px solid var(--theme-color);
+    @apply px-4 py-2 font-semibold;
 }
 
 .Search {
@@ -41,13 +67,15 @@
 
 
 .Banner {
-    min-height: 200px;
+    min-height: 250px;
     background-color: var(--theme-color);
-    color: var(--white-base);
+    color: var(--black-base);
     display: flex;
     justify-content: center;
     align-items: center;
-    @apply py-6 px-4 -mx-4 text-3xl;
+    background-size: cover;
+    background-position-y: center;
+    @apply py-6 px-4 -mx-4 text-3xl font-semibold;
 }
 
 .ProductCard {
@@ -55,7 +83,7 @@
     border: 1px solid var(--grey-base);
     display: flex;
     flex-direction: column;
-    @apply p-3;
+    @apply p-3 shadow-lg;
 }
 .ProductCard .tag {
     background-color: var(--secondary-color);
@@ -63,6 +91,43 @@
     color: var(--white-base);
     display: inline-block;
     @apply p-1 px-3 mb-1 text-xs;
+}
+.TextField {
+    position: relative;
+    border-radius: 10px;
+    border: 1px solid var(--grey-base);
+    @apply px-3 py-4;
+}
+.TextField input {
+    background-color: transparent;
+    width: 100%;
+}
+.TextField:has( input:not(:focus-visible)) input::placeholder {
+    color: transparent;
+}
+.TextField:has( input:not(:placeholder-shown)) {
+    border-color: var(--grey-base);
+    padding-top: 22px;
+    @apply pb-2.5;
+}
+.TextField:has( input:focus-visible) {
+    border-color: var(--theme-color);
+    padding-top: 22px;
+    @apply pb-2.5;
+}
+.TextField label {
+    position: absolute;
+    color: var(--grey-dark);
+    transition: 0.3s all;
+    z-index: -1;
+    @apply text-base font-semibold;
+}
+.TextField:has( :focus-visible) label, .TextField:has( input:not(:placeholder-shown)) label {
+    position: absolute;
+    @apply top-2.5 left-3 text-xs;
+}
+.TextField input:focus-visible  {
+    outline: none;
 }
 
 @tailwind base;
