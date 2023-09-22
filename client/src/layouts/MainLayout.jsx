@@ -1,6 +1,9 @@
-const MainLayout = ({ children }) => {
+import Banner from "../components/Banner"
+
+const MainLayout = ({ title, children }) => {
   return (
-    <main className="pt-10 pb-20 m-auto max-w-[1024px] px-4">
+    <main className="pb-20 m-auto max-w-[1024px] px-4">
+        <Banner title={title} className="mb-6" />
         { children }
     </main>
   )
