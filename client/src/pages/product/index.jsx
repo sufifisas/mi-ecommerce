@@ -4,21 +4,26 @@ import MainLayout from "../../layouts/MainLayout";
 import ProductCard from "../../components/ProductCard";
 import { useEffect, useState } from "react";
 import axios from 'axios';
+import Loader from "../../components/Loader";
 
 const Product = () => {
 
   const [products, setProducts] = useState([]);
   const [keyword, setKeyword] = useState('');
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
+    setIsLoading(true)
     axios.get('http://localhost:3000/api/products' + (keyword && `?keyword=${keyword}`))
     .then(function (response) {
       // handle success
       setProducts(response.data);
+      setIsLoading(false)
     })
     .catch(function (error) {
       // handle error
       console.log(error.message);
+      setIsLoading(false)
     })
   }, [keyword])
 
@@ -107,18 +112,26 @@ const Product = () => {
           <Search keyword={keyword} setKeyword={setKeyword} />
         </div>
         <div className="grid grid-cols-4 mt-8 gap-x-4 gap-y-6">
-          { sortedList.map((product, index) => {
-            return (
-              <ProductCard
-                key={index}
-                brand={product.brand}
-                title={product.name}
-                code={product.barcode}
-                id={product.id} />
-            )
-          })}
+          { sortedList.length > 0 ? 
+            <>
+            { sortedList.map((product, index) => {
+              return (
+                <ProductCard
+                  key={index}
+                  brand={product.brand}
+                  title={product.name}
+                  code={product.barcode}
+                  id={product.id} />
+              )
+            })}
+            </>
+            :
+            <div className="col-span-4 text-center pt-10">Sorry, no results found</div>
+          }
         </div>
-        {/* <Link to="/1">Go to Product 1</Link> */}
+        { isLoading &&
+          <Loader />
+        }
     </MainLayout>
   )
 }

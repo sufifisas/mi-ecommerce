@@ -1,12 +1,14 @@
 
 :root {
     --theme-color: #54B435;
+    --theme-color-light: #c1e0b7;
     --secondary-color: #FFCF9D;
     --black-base: #000000;
     --grey-base: #CED8DD;
     --grey-dark: #848688;
     --white-base: #FFFFFF;
     --red-base: #D1223E;
+    --red-base-light: #e69eaa;
 }
 
 .btn {
@@ -144,6 +146,16 @@
 .TextField .error-msg {
     color: var(--red-base);
     @apply text-sm mt-0.5;
+}
+.flash {
+    border-radius: 10px;
+    background-color: var(--theme-color-light);
+    color: var(--theme-color);
+    @apply font-semibold p-4;
+}
+.flash.fail {
+    background-color: var(--red-base-light);
+    color: var(--red-base);
 }
 
 @tailwind base;

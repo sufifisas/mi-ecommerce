@@ -51,21 +51,14 @@ exports.update = (req, res) => {
   Product.update(req.body, {
     where: { id: id }
   })
-    .then(num => {
-      if (num == 1) {
+    .then(() => {
         res.send({
-          data: num,
-          message: "Tutorial was updated successfully."
+          message: "Product was updated successfully."
         });
-      } else {
-        res.send({
-          message: `Cannot update Product with id=${id}. Maybe Product was not found or req.body is empty!`
-        });
-      }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error updating Tutorial with id=" + id
+        message: err.errors[0].message
       });
     });
 };
