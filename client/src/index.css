@@ -44,7 +44,6 @@
     display: flex;
     width: 100%;
     align-items: center;
-    @apply gap-3;
 }
 .Search .container {
     border: 2px solid var(--grey-base);

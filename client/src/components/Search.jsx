@@ -2,7 +2,7 @@ import { SearchIcon } from "../icons"
 
 const Search = () => {
   return (
-    <div className="Search">
+    <div className="Search gap-3">
         <form className="container">
             <SearchIcon className="icon" size={24} fill="#54B435" />
             <input className="field" type="search"/>
