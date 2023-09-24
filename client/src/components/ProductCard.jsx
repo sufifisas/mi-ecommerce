@@ -15,7 +15,7 @@ const ProductCard = ({ brand, title, code, id }) => {
             </div>
         </div>
         <div className="mt-2">
-            <Link to={id}>
+            <Link to={`/${id}`}>
                 <button className="btn w-full">Edit</button>
             </Link>
         </div>

@@ -6,12 +6,10 @@ const FormWrapper = ({ children }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const invalidList = Object.values(validate);
+        const invalidList = Object.values(validate ?? {});
 
         if(invalidList.every((item) => item === 'false')) {
-            console.log('form validated')
-        } else {
-            console.log('form is invalid')
+            alert('form validated')
         }
     }
 

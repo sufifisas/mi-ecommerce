@@ -133,6 +133,9 @@
 .TextField .wrapper.invalid {
     border: 1px solid var(--red-base);
 }
+.TextField .wrapper.invalid:has( input:not(:placeholder-shown)) {
+    border: 1px solid var(--red-base);
+}
 .TextField .wrapper.invalid:has( input:focus-visible) {
     border: 1px solid var(--red-base);
 }
