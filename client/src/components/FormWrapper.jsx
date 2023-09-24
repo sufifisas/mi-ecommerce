@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const FormWrapper = ({ onSubmit, children }) => {
+const FormWrapper = ({ onSubmit, onChange, children }) => {
     const [value, setValue] = useState(null);
     // const [validate, setValidate] = useState([])
 
@@ -21,6 +21,7 @@ const FormWrapper = ({ onSubmit, children }) => {
             ...value,
             [e.target.name]: e.target.value,
         })
+        onChange && onChange();
     }
 
     // const handleValidate = (e) => {

@@ -47,12 +47,14 @@ const SingleProduct = () => {
 
     return (
         <MainLayout title={product?.name}>
-            { location?.key === 'default' ?
-                <Link to="/">Home</Link> : <button onClick={() => navigate(-1)}>Back</button>	
-            }
+            <div className='font-semibold'>
+                { location?.key === 'default' ?
+                    <Link to="/">Home</Link> : <button onClick={() => navigate(-1)}>Back</button>	
+                }
+            </div>
             <div className='max-w-[600px] mt-6 mx-auto'>
                 { formSuccess && <p className='flash success mb-4'>{formSuccess}</p> }
-                <FormWrapper onSubmit={handleSubmit}>
+                <FormWrapper onSubmit={handleSubmit} onChange={() => {setFormError(''); setFormSuccess('')}}>
                     <div className='grid grid-cols-1 gap-4'>
                         <TextField label="Brand" name="brand" defaultValue={product?.brand}  validation="yup.string().required()"/>
                         <TextField label="Product Name" name="name" defaultValue={product?.name} validation="yup.string().required()"/>

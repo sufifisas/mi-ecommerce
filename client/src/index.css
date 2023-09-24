@@ -12,7 +12,7 @@
 }
 
 .btn {
-    background: var(--theme-color);
+    background: var(--theme-color)!important;
     border-radius: 10px;
     color: var(--white-base);
     border: 1px solid var(--theme-color);
@@ -21,21 +21,21 @@
 }
 .btn:hover {
     border-radius: 10px;
-    background: var(--white-base);
+    background: var(--white-base)!important;
     color: var(--theme-color);
     border: 1px solid var(--theme-color);
     @apply px-4 py-2 font-semibold;
 }
 .btn_outline {
     border-radius: 10px;
-    background: var(--white-base);
+    background: var(--white-base)!important;
     color: var(--theme-color);
     border: 1px solid var(--theme-color);
     transition: 0.3s all;
     @apply px-4 py-2 font-semibold;
 }
 .btn_outline:hover {
-    background: var(--theme-color);
+    background: var(--theme-color)!important;
     border-radius: 10px;
     color: var(--white-base);
     border: 1px solid var(--theme-color);

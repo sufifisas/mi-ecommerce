@@ -35,38 +35,6 @@ const Product = () => {
     switch (sortBy) {
       case 'A': {
         setSortedList(unsortedList.sort((a, b) => {
-          const nameA = a.name.toUpperCase(); // ignore upper and lowercase
-          const nameB = b.name.toUpperCase(); // ignore upper and lowercase
-          if (nameA < nameB) {
-            return -1;
-          }
-          if (nameA > nameB) {
-            return 1;
-          }
-        
-          // names must be equal
-          return 0;
-        }))
-        break;
-      };
-      case 'B': {
-        setSortedList(unsortedList.sort((b, a) => {
-          const nameA = a.name.toUpperCase(); // ignore upper and lowercase
-          const nameB = b.name.toUpperCase(); // ignore upper and lowercase
-          if (nameA < nameB) {
-            return -1;
-          }
-          if (nameA > nameB) {
-            return 1;
-          }
-        
-          // names must be equal
-          return 0;
-        }))
-        break;
-      };
-      case 'C': {
-        setSortedList(unsortedList.sort((a, b) => {
           const brandA = a.brand.toUpperCase(); // ignore upper and lowercase
           const brandB = b.brand.toUpperCase(); // ignore upper and lowercase
           if (brandA < brandB) {
@@ -81,7 +49,7 @@ const Product = () => {
         }))
         break;
       };
-      default: {
+      case 'B': {
         setSortedList(unsortedList.sort((b, a) => {
           const brandA = a.brand.toUpperCase(); // ignore upper and lowercase
           const brandB = b.brand.toUpperCase(); // ignore upper and lowercase
@@ -97,21 +65,53 @@ const Product = () => {
         }))
         break;
       }
+      case 'C': {
+        setSortedList(unsortedList.sort((a, b) => {
+          const nameA = a.name.toUpperCase(); // ignore upper and lowercase
+          const nameB = b.name.toUpperCase(); // ignore upper and lowercase
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+        
+          // names must be equal
+          return 0;
+        }))
+        break;
+      };
+      default: {
+        setSortedList(unsortedList.sort((b, a) => {
+          const nameA = a.name.toUpperCase(); // ignore upper and lowercase
+          const nameB = b.name.toUpperCase(); // ignore upper and lowercase
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+        
+          // names must be equal
+          return 0;
+        }))
+        break;
+      };
     }
   }, [sortBy, products])
 
   return (
     <MainLayout title="Products">
-        <div className="flex gap-3">
+        <div className="flex flex-col-reverse sm:flex-row gap-3">
           <select onChange={(e) => setSortBy(e.target.value)}>
-            <option value="A">1</option>
-            <option value="B">2</option>
-            <option value="C">3</option>
-            <option value="D">4</option>
+            <option value="A">Brand A-Z</option>
+            <option value="B">Brand Z-A</option>
+            <option value="C">Product Name A-Z</option>
+            <option value="D">Product Name Z-A</option>
           </select>
           <Search keyword={keyword} setKeyword={setKeyword} />
         </div>
-        <div className="grid grid-cols-4 mt-8 gap-x-4 gap-y-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3  lg:grid-cols-4 mt-8 gap-x-4 gap-y-6">
           { sortedList.length > 0 ? 
             <>
             { sortedList.map((product, index) => {
@@ -126,7 +126,14 @@ const Product = () => {
             })}
             </>
             :
-            <div className="col-span-4 text-center pt-10">Sorry, no results found</div>
+            <>
+              { keyword ? 
+                <div className="col-span-4 text-center pt-10">Sorry, no results found</div>
+                :
+                <div className="col-span-4 text-center pt-10">Products list is empty</div>
+              }
+            </>
+           
           }
         </div>
         { isLoading &&
