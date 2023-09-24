@@ -103,8 +103,8 @@ const Product = () => {
 
   return (
     <MainLayout title="Products">
-        <div className="flex flex-col-reverse sm:flex-row gap-3">
-          <div className="w-full sm:w-[300px]">
+        <div className="flex flex-col-reverse sm:grid sm:grid-cols-3 gap-3 lg:grid-cols-4">
+          <div className="w-full">
             <Dropdown onChange={(e) => setSortBy(e.target.value)} label="Sort By" name="sort" options={[
               {
                 label: 'Product Name A-Z',
@@ -124,7 +124,9 @@ const Product = () => {
               },
             ]}/>
           </div>
-          <Search keyword={keyword} setKeyword={setKeyword} />
+          <div className="sm:col-span-2 lg:col-span-3">
+            <Search keyword={keyword} setKeyword={setKeyword} placeholder="Search by Brand or Product Name"/>
+          </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3  lg:grid-cols-4 mt-8 gap-x-4 gap-y-6">
           { sortedList.length > 0 ? 

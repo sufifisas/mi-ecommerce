@@ -1,13 +1,15 @@
 import { useState } from "react"
+import { ArrowDownIcon } from "../icons";
 
 const Dropdown = ({ label, name, options, ...props }) => {
   const [toggleOptions, setToggleOptions] = useState(false);
   const [value, setValue] = useState(options[0].label)
   return (
     <div className="Dropdown relative" {...props}>
-      <div className={`wrapper h-[58px] ${toggleOptions && 'active'} ${value && 'selected'}`} onClick={() => setToggleOptions(toggleOptions => !toggleOptions)}>
+      <div className={`relative wrapper h-[58px] ${toggleOptions && 'active'} ${value && 'selected'}`} onClick={() => setToggleOptions(toggleOptions => !toggleOptions)}>
           <label>{ label }</label>
           <p className="value-field">{value}</p>
+          <ArrowDownIcon fill="#54b435" size={20} className={`ease-in-out duration-300 absolute right-2 top-5 ${toggleOptions && 'rotate-180'}`}/>
       </div>
       { toggleOptions &&
         <div className="options" onChange={(e) => {setValue(e.target.dataset.label); setToggleOptions(toggleOptions => !toggleOptions)}}>
