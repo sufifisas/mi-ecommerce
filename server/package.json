@@ -4,7 +4,9 @@
   "description": "REST APIs with Expressjs, Sequelize and MySQL",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "migrate-fresh": "node migrate.js",
+    "seeder": "node ./app/faker"
   },
   "keywords": [
     "expressjs",
