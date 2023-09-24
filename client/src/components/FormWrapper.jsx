@@ -1,15 +1,18 @@
 import { useState } from 'react';
 
-const FormWrapper = ({ children }) => {
+const FormWrapper = ({ onSubmit, children }) => {
     const [value, setValue] = useState(null);
-    const [validate, setValidate] = useState(null)
+    // const [validate, setValidate] = useState([])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const invalidList = Object.values(validate ?? {});
-
+        const invalidList = [...e.target.querySelectorAll('input')].map((item) => {
+            return item.ariaInvalid
+        })
+        console.log(value, invalidList, 'valid')
         if(invalidList.every((item) => item === 'false')) {
-            alert('form validated')
+            onSubmit && onSubmit(value);
+            console.log('form submiited')
         }
     }
 
@@ -20,16 +23,18 @@ const FormWrapper = ({ children }) => {
         })
     }
 
-    const handleValidate = (e) => {
-        if (e.target.type !== 'submit' && e.target.type !== 'button') {
-            setValidate({
-                ...validate,
-                [e.target.name]: e.target.ariaInvalid,
-            })
-        }
-    }
+    // const handleValidate = (e) => {
+    //     console.log(e.target.ariaInvalid, e.target.name)
+    //     if (e.target.type !== 'submit' && e.target.type !== 'button') {
+    //         console.log(e.target.ariaInvalid, e.target.name)
+    //         setValidate({
+    //             ...validate,
+    //             [e.target.name]: e.target.ariaInvalid,
+    //         })
+    //     }
+    // }
     return (
-        <form onSubmit={handleSubmit} onBlur={handleValidate} onChange={handleChange}>{ children }</form>
+        <form onSubmit={handleSubmit} onChange={handleChange}>{ children }</form>
     )
 }
 

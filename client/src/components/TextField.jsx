@@ -25,6 +25,7 @@ const TextField = ({ label, name, defaultValue, validation, ...props }) => {
                 <input
                     {...props}
                     onChange={handleValidation}
+                    onBlur={handleValidation}
                     placeholder="test"
                     name={name}
                     defaultValue={defaultValue}
