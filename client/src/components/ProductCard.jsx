@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-const ProductCard = ({ brand, title, code, url }) => {
+const ProductCard = ({ brand, title, code, id }) => {
   return (
     <div className="ProductCard">
         <div className="flex-grow flex flex-col">
@@ -15,7 +15,7 @@ const ProductCard = ({ brand, title, code, url }) => {
             </div>
         </div>
         <div className="mt-2">
-            <Link to={url}>
+            <Link to={id}>
                 <button className="btn w-full">Edit</button>
             </Link>
         </div>

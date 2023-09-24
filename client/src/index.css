@@ -6,6 +6,7 @@
     --grey-base: #CED8DD;
     --grey-dark: #848688;
     --white-base: #FFFFFF;
+    --red-base: #D1223E;
 }
 
 .btn {
@@ -92,42 +93,55 @@
     display: inline-block;
     @apply p-1 px-3 mb-1 text-xs;
 }
-.TextField {
+.TextField .wrapper {
     position: relative;
     border-radius: 10px;
     border: 1px solid var(--grey-base);
     @apply px-3 py-4;
 }
-.TextField input {
+.TextField .wrapper input {
     background-color: transparent;
     width: 100%;
 }
-.TextField:has( input:not(:focus-visible)) input::placeholder {
+.TextField .wrapper:has( input:not(:focus-visible)) input::placeholder {
     color: transparent;
 }
-.TextField:has( input:not(:placeholder-shown)) {
+.TextField .wrapper:has( input:not(:placeholder-shown)) {
     border-color: var(--grey-base);
     padding-top: 22px;
     @apply pb-2.5;
 }
-.TextField:has( input:focus-visible) {
+.TextField .wrapper:has( input:focus-visible) {
     border-color: var(--theme-color);
     padding-top: 22px;
     @apply pb-2.5;
 }
-.TextField label {
+.TextField .wrapper label {
     position: absolute;
     color: var(--grey-dark);
     transition: 0.3s all;
     z-index: -1;
     @apply text-base font-semibold;
 }
-.TextField:has( :focus-visible) label, .TextField:has( input:not(:placeholder-shown)) label {
+.TextField .wrapper:has( :focus-visible) label, .TextField:has( input:not(:placeholder-shown)) label {
     position: absolute;
     @apply top-2.5 left-3 text-xs;
 }
-.TextField input:focus-visible  {
+.TextField .wrapper input:focus-visible  {
     outline: none;
+}
+.TextField .wrapper.invalid {
+    border: 1px solid var(--red-base);
+}
+.TextField .wrapper.invalid:has( input:focus-visible) {
+    border: 1px solid var(--red-base);
+}
+.TextField .wrapper.invalid label {
+    color: var(--red-base);
+}
+.TextField .error-msg {
+    color: var(--red-base);
+    @apply text-sm mt-0.5;
 }
 
 @tailwind base;
