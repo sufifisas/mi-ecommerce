@@ -48,12 +48,14 @@
     align-items: center;
 }
 .Search .container {
-    border: 2px solid var(--grey-base);
+    border: 1px solid var(--grey-base);
     border-radius: 10px;
     display: flex;
     flex-grow: 1;
     align-items: center;
-    @apply px-3 py-1 gap-2;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    @apply px-3 gap-2;
 }
 .Search .field {
     height: 40px;
@@ -147,6 +149,81 @@
     color: var(--red-base);
     @apply text-sm mt-0.5;
 }
+
+.Dropdown .wrapper {
+    position: relative;
+    border-radius: 10px;
+    border: 1px solid var(--grey-base);
+    cursor: pointer;
+    @apply px-3 py-4;
+}
+.Dropdown .wrapper input {
+    background-color: transparent;
+    width: 100%;
+}
+.Dropdown .wrapper:has( input:not(:focus-visible)) input::placeholder {
+    color: transparent;
+}
+.Dropdown .wrapper:has( input:not(:placeholder-shown)) {
+    border-color: var(--grey-base);
+    padding-top: 22px;
+    @apply pb-2.5;
+}
+.Dropdown .wrapper.selected {
+    border-color: var(--grey-base);
+    padding-top: 22px;
+    @apply pb-2.5;
+}
+.Dropdown .wrapper.active {
+    border-color: var(--theme-color);
+    padding-top: 22px;
+    @apply pb-2.5;
+}
+.Dropdown .wrapper label {
+    position: absolute;
+    color: var(--grey-dark);
+    transition: 0.3s all;
+    z-index: -1;
+    @apply text-base font-semibold;
+}
+.Dropdown .wrapper.active label, .Dropdown .wrapper.selected label {
+    position: absolute;
+    @apply top-2.5 left-3 text-xs;
+}
+.Dropdown .wrapper input:focus-visible  {
+    outline: none;
+}
+.Dropdown .wrapper.invalid {
+    border: 1px solid var(--red-base);
+}
+.Dropdown .wrapper.invalid:has( input:not(:placeholder-shown)) {
+    border: 1px solid var(--red-base);
+}
+.Dropdown .wrapper.invalid:has( input:focus-visible) {
+    border: 1px solid var(--red-base);
+}
+.Dropdown .wrapper.invalid label {
+    color: var(--red-base);
+}
+.Dropdown .options {
+    position: absolute;
+    border-radius: 10px;
+    top: 62px;
+    background-color: var(--white-base);
+    left: 0;
+    width: 100%;
+    border: 1px solid var(--grey-base);
+    @apply p-2 shadow;
+}
+.Dropdown .option {
+    border-radius: 10px;
+    @apply p-2;
+}
+.Dropdown .option:hover, .Dropdown .option.selected {
+    background-color: var(--theme-color);
+    color: var(--white-base);
+}
+
 .flash {
     border-radius: 10px;
     background-color: var(--theme-color-light);
