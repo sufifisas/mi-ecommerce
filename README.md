@@ -10,12 +10,14 @@ This project is using Reactjs, Expressjs, Sequelize and MySQL.
 4. You can change the database config at server/app/config/db.config.js
 5. open new terminal in project folder.
 6. run `cd server`
-7. run `npm run start` in your /server.
-8. open new terminal and run `cd server`.
-9. run `npm run seeder` to generate fake data.
-10. open new terminal and run `cd client`.
-11. run `npm run dev`.
-12. if everthing is okay. you should be able to see the page as screenshots below.
+7. run `npm install`in your /server.
+8. run `npm run start` in your /server.
+9. open new terminal and run `cd server`.
+10. run `npm run seeder` to generate fake data.
+11. open new terminal and run `cd client`.
+12. run `npm install` in your /client.
+13. run `npm run dev` in your /client.
+14. if everthing is okay. you should be able to see the page as screenshots below.
 
 <img width="1103" alt="Screenshot 2023-09-25 at 9 44 38 AM" src="https://github.com/sufifisas/mi-ecommerce/assets/50712718/9a1cedc6-b7df-4259-bd8a-e2f9a591ac08">
 <img width="1057" alt="Screenshot 2023-09-25 at 9 51 21 AM" src="https://github.com/sufifisas/mi-ecommerce/assets/50712718/eb203568-0746-4939-8ffd-f57d44b0c535">
