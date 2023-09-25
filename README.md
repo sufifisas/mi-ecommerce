@@ -16,10 +16,11 @@ This project is using Reactjs, Expressjs, Sequelize and MySQL.
 10. run `npm run start` in your /server.
 11. open new terminal and run `cd server`.
 12. run `npm run seeder` to generate fake data.
-13. open new terminal and run `cd client`.
-14. run `npm install` in your /client.
-15. run `npm run dev` in your /client.
-16. if everthing is okay. you should be able to see the page as screenshots below at http://localhost:5173
+13. you can alsoe run `npm run migrate-fresh` in your /server to drop and refresh the database.
+14. open new terminal and run `cd client`.
+15. run `npm install` in your /client.
+16. run `npm run dev` in your /client.
+17. if everthing is okay. you should be able to see the page as screenshots below at http://localhost:5173
 
 <img width="1103" alt="Screenshot 2023-09-25 at 9 44 38 AM" src="https://github.com/sufifisas/mi-ecommerce/assets/50712718/9a1cedc6-b7df-4259-bd8a-e2f9a591ac08">
 <img width="1057" alt="Screenshot 2023-09-25 at 9 51 21 AM" src="https://github.com/sufifisas/mi-ecommerce/assets/50712718/eb203568-0746-4939-8ffd-f57d44b0c535">
