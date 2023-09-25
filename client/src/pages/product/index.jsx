@@ -15,7 +15,7 @@ const Product = () => {
 
   useEffect(() => {
     setIsLoading(true)
-    axios.get('http://localhost:3000/api/products' + (keyword && `?keyword=${keyword}`))
+    axios.get('http://localhost:4001/api/products' + (keyword && `?keyword=${keyword}`))
     .then(function (response) {
       // handle success
       setProducts(response.data);

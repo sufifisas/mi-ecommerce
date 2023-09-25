@@ -17,7 +17,7 @@ const SingleProduct = () => {
     const [formSuccess, setFormSuccess] = useState('');
 
     useEffect(() => {
-        axios.get('http://localhost:3000/api/products/' + id)
+        axios.get('http://localhost:4001/api/products/' + id)
         .then(function (response) {
           // handle success
           setProduct(response.data);
@@ -32,11 +32,11 @@ const SingleProduct = () => {
         setIsLoading(true)
         setFormError('')
         setFormSuccess('')
-        axios.put('http://localhost:3000/api/products/' + id, data)
+        axios.put('http://localhost:4001/api/products/' + id, data)
         .then((response) => {
             setFormSuccess(response.data.message)
             setUpdateCount(prev => prev + 1)
-            setIsLoading(false)
+            setIsLoading(false);
         })
         .catch((error) => {
           // handle error
