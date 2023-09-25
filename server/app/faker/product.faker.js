@@ -1,5 +1,5 @@
 module.exports = (number) => {
-    const brandList = ['vegetables', 'fruits', 'seafoods', 'dry foods', 'herbs'];
+    const brandList = ['Jaya Grocer', 'Start Grocer', 'Mydin', 'Giant', 'Speedmart'];
 
     let faker = [];
     const getRandomInt = () => {
